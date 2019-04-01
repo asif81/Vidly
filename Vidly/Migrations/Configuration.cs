@@ -29,26 +29,31 @@ namespace Vidly.Migrations
 
             var MembershipType = new List<MembershipType>
             {
-                new Genre { GenreId = 1,   Name = "Comedy"},
-                new Genre { GenreId = 2,   Name = "Adventure"},
-                new Genre { GenreId = 3,   Name = "Fantasy"},
-                new Genre { GenreId = 4,   Name = "Horror"},
-                new Genre { GenreId = 5,   Name = "Drama"},
-                new Genre { GenreId = 6,   Name = "Sci-Fi"},
+                new MembershipType { Id = 1,   Name = "Daily"},
+                new MembershipType { Id = 2,   Name = "Weekly"},
+                new MembershipType { Id = 3,   Name = "Monthly"},
+                new MembershipType { Id = 4,   Name = "Quarterly"},
+                new MembershipType { Id = 5,   Name = "Yearly"}
+                
             };
-            Genre.ForEach(s => context.Genre.AddOrUpdate(g => g.Name, s));
+            MembershipType.ForEach(s => context.MembershipTypes.AddOrUpdate(ms => ms.Name, s));
             context.SaveChanges();
 
             var Customer = new List<Customer>
             {
-                new Genre { GenreId = 1,   Name = "Comedy"},
-                new Genre { GenreId = 2,   Name = "Adventure"},
-                new Genre { GenreId = 3,   Name = "Fantasy"},
-                new Genre { GenreId = 4,   Name = "Horror"},
-                new Genre { GenreId = 5,   Name = "Drama"},
-                new Genre { GenreId = 6,   Name = "Sci-Fi"},
+                new Customer { CustomerId = 1,   Name = "Asif Iqbal", BirthDate=DateTime.Parse("1981-03-23"),
+                    IsSubscribedToNewsLetter = true, MembershipTypeId=2},
+                new Customer { CustomerId = 1,   Name = "Atif Iqbal", BirthDate=DateTime.Parse("1985-02-02"),
+                    IsSubscribedToNewsLetter = true, MembershipTypeId=3},
+                new Customer { CustomerId = 1,   Name = "Ashar Asif", BirthDate=DateTime.Parse("2012-03-15"),
+                    IsSubscribedToNewsLetter = true, MembershipTypeId=4},
+                new Customer { CustomerId = 1,   Name = "Saad Asif", BirthDate=DateTime.Parse("2015-01-01"),
+                    IsSubscribedToNewsLetter = true, MembershipTypeId=5},
+                new Customer { CustomerId = 1,   Name = "Abdullah Iqbal", BirthDate=DateTime.Parse("2018-05-26"),
+                    IsSubscribedToNewsLetter = true, MembershipTypeId=1}
+                
             };
-            Genre.ForEach(s => context.Genre.AddOrUpdate(g => g.Name, s));
+            Customer.ForEach(s => context.Customers.AddOrUpdate(g => g.Name, s));
             context.SaveChanges();
 
             var Movie = new List<Movie>
@@ -71,7 +76,7 @@ namespace Vidly.Migrations
                 new Movie { MovieId = 6,   Name = "Jupitor Ascending", GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
                     ReleaseDate = DateTime.Parse("2008-05-06"),NoOfCopiesAvailable=10 }
             };
-            Genre.ForEach(s => context.Genre.AddOrUpdate(g => g.Name, s));
+            Movie.ForEach(s => context.Movies.AddOrUpdate(m => m.Name, s));
             context.SaveChanges();
         }
     }
