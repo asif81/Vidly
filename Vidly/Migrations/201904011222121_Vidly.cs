@@ -3,7 +3,7 @@ namespace Vidly.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class vidly : DbMigration
+    public partial class Vidly : DbMigration
     {
         public override void Up()
         {
@@ -14,7 +14,7 @@ namespace Vidly.Migrations
                         CustomerId = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 255),
                         IsSubscribedToNewsLetter = c.Boolean(nullable: false),
-                        MembershipTypeId = c.Byte(nullable: false),
+                        MembershipTypeId = c.Int(nullable: false),
                         BirthDate = c.DateTime(),
                     })
                 .PrimaryKey(t => t.CustomerId)
@@ -25,7 +25,7 @@ namespace Vidly.Migrations
                 "dbo.MembershipTypes",
                 c => new
                     {
-                        Id = c.Byte(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         SignUpFee = c.Short(nullable: false),
                         DurationInMonths = c.Byte(nullable: false),

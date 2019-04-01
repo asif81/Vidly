@@ -14,6 +14,6 @@ namespace Vidly.Models
         public byte DiscountRate { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public byte Id { get; set; }
+        public int Id { get; set; }
     }
 }

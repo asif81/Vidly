@@ -27,17 +27,17 @@ namespace Vidly.Migrations
             Genre.ForEach(s => context.Genre.AddOrUpdate(g => g.Name, s));
             context.SaveChanges();
 
-            //var MembershipType = new List<MembershipType>
-            //{
-            //    new MembershipType {  Name = "Daily"},
-            //    new MembershipType {  Name = "Weekly"},
-            //    new MembershipType {  Name = "Monthly"},
-            //    new MembershipType {  Name = "Quarterly"},
-            //    new MembershipType {  Name = "Yearly"}
-                
-            //};
-            //MembershipType.ForEach(s => context.MembershipTypes.AddOrUpdate(ms => ms.Name, s));
-            //context.SaveChanges();
+            var MembershipType = new List<MembershipType>
+            {
+                new MembershipType {  Name = "Daily"},
+                new MembershipType {  Name = "Weekly"},
+                new MembershipType {  Name = "Monthly"},
+                new MembershipType {  Name = "Quarterly"},
+                new MembershipType {  Name = "Yearly"}
+
+            };
+            MembershipType.ForEach(s => context.MembershipTypes.AddOrUpdate(ms => ms.Name, s));
+            context.SaveChanges();
 
             var Customer = new List<Customer>
             {
