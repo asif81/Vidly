@@ -3,7 +3,7 @@ namespace Vidly.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Vidly : DbMigration
+    public partial class VidlyDB : DbMigration
     {
         public override void Up()
         {

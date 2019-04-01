@@ -6,6 +6,7 @@ namespace Vidly.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
     using Vidly.Models;
+
     internal sealed class Configuration : DbMigrationsConfiguration<Vidly.Models.ApplicationDbContext>
     {
         public Configuration()

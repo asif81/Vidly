@@ -299,9 +299,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904011222121_Vidly.cs" />
-    <Compile Include="Migrations\201904011222121_Vidly.Designer.cs">
-      <DependentUpon>201904011222121_Vidly.cs</DependentUpon>
+    <Compile Include="Migrations\201904011230401_VidlyDB.cs" />
+    <Compile Include="Migrations\201904011230401_VidlyDB.Designer.cs">
+      <DependentUpon>201904011230401_VidlyDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -398,8 +398,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904011222121_Vidly.resx">
-      <DependentUpon>201904011222121_Vidly.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904011230401_VidlyDB.resx">
+      <DependentUpon>201904011230401_VidlyDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
