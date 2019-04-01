@@ -1,0 +1,21 @@
+﻿@model Vidly.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+<ul>
+    <li>MemberShip Type : @Html.DisplayFor(model => model.MembershipType.Name)</li>
+    @if (Model.BirthDate != null)
+    {
+        <li>Birth Date : @Html.DisplayFor(model => model.BirthDate)</li>
+    }
+</ul>    
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
