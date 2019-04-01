@@ -41,7 +41,7 @@ namespace Vidly.Controllers
             {
                 Genre = genre
             };
-            return View("MovieFormViewModel", viewModel);
+            return View("MovieForm", viewModel);
         }
 
         [HttpPost]
