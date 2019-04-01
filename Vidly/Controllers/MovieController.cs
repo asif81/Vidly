@@ -20,28 +20,28 @@ namespace Vidly.Controllers
         // GET: Movie
         public ActionResult Index()
         {
-            var customers = _context.Movies.Include(m => m.Genre).ToList();
-            return View(customers);
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
+            return View(movies);
         }
 
         public ActionResult Details(int Id)
         {
-            var customer = _context.Movies.Include(m => m.Genre).SingleOrDefault(c => c.MovieId == Id);
-            if (customer == null)
+            var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(c => c.MovieId == Id);
+            if (movie == null)
                 return HttpNotFound();
 
-            return View(customer);
+            return View(movie);
         }
 
 
         public ActionResult New()
         {
-            var membershipTypes = _context.MembershipTypes.ToList();
-            var viewModel = new ViewModels.CustomerFormViewModel()
+            var genre = _context.Genre.ToList();
+            var viewModel = new ViewModels.MovieFormViewModel()
             {
-                MembershipType = membershipTypes
+                Genre = genre
             };
-            return View("CustomerForm", viewModel);
+            return View("MovieFormViewModel", viewModel);
         }
 
         [HttpPost]

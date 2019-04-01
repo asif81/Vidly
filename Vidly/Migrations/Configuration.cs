@@ -17,39 +17,39 @@ namespace Vidly.Migrations
         {
             var Genre = new List<Genre>
             {
-                new Genre { GenreId = 1,   Name = "Comedy"},
-                new Genre { GenreId = 2,   Name = "Adventure"},
-                new Genre { GenreId = 3,   Name = "Fantasy"},
-                new Genre { GenreId = 4,   Name = "Horror"},
-                new Genre { GenreId = 5,   Name = "Drama"},
-                new Genre { GenreId = 6,   Name = "Sci-Fi"},
+                new Genre {  Name = "Comedy"},
+                new Genre {  Name = "Adventure"},
+                new Genre {  Name = "Fantasy"},
+                new Genre {  Name = "Horror"},
+                new Genre {  Name = "Drama"},
+                new Genre {  Name = "Sci-Fi"},
             };
             Genre.ForEach(s => context.Genre.AddOrUpdate(g => g.Name, s));
             context.SaveChanges();
 
-            var MembershipType = new List<MembershipType>
-            {
-                new MembershipType { Id = 1,   Name = "Daily"},
-                new MembershipType { Id = 2,   Name = "Weekly"},
-                new MembershipType { Id = 3,   Name = "Monthly"},
-                new MembershipType { Id = 4,   Name = "Quarterly"},
-                new MembershipType { Id = 5,   Name = "Yearly"}
+            //var MembershipType = new List<MembershipType>
+            //{
+            //    new MembershipType {  Name = "Daily"},
+            //    new MembershipType {  Name = "Weekly"},
+            //    new MembershipType {  Name = "Monthly"},
+            //    new MembershipType {  Name = "Quarterly"},
+            //    new MembershipType {  Name = "Yearly"}
                 
-            };
-            MembershipType.ForEach(s => context.MembershipTypes.AddOrUpdate(ms => ms.Name, s));
-            context.SaveChanges();
+            //};
+            //MembershipType.ForEach(s => context.MembershipTypes.AddOrUpdate(ms => ms.Name, s));
+            //context.SaveChanges();
 
             var Customer = new List<Customer>
             {
-                new Customer { CustomerId = 1,   Name = "Asif Iqbal", BirthDate=DateTime.Parse("1981-03-23"),
+                new Customer {  Name = "Asif Iqbal", BirthDate=DateTime.Parse("1981-03-23"),
                     IsSubscribedToNewsLetter = true, MembershipTypeId=2},
-                new Customer { CustomerId = 1,   Name = "Atif Iqbal", BirthDate=DateTime.Parse("1985-02-02"),
+                new Customer {  Name = "Atif Iqbal", BirthDate=DateTime.Parse("1985-02-02"),
                     IsSubscribedToNewsLetter = true, MembershipTypeId=3},
-                new Customer { CustomerId = 1,   Name = "Ashar Asif", BirthDate=DateTime.Parse("2012-03-15"),
+                new Customer {  Name = "Ashar Asif", BirthDate=DateTime.Parse("2012-03-15"),
                     IsSubscribedToNewsLetter = true, MembershipTypeId=4},
-                new Customer { CustomerId = 1,   Name = "Saad Asif", BirthDate=DateTime.Parse("2015-01-01"),
+                new Customer {  Name = "Saad Asif", BirthDate=DateTime.Parse("2015-01-01"),
                     IsSubscribedToNewsLetter = true, MembershipTypeId=5},
-                new Customer { CustomerId = 1,   Name = "Abdullah Iqbal", BirthDate=DateTime.Parse("2018-05-26"),
+                new Customer {  Name = "Abdullah Iqbal", BirthDate=DateTime.Parse("2018-05-26"),
                     IsSubscribedToNewsLetter = true, MembershipTypeId=1}
                 
             };
@@ -58,22 +58,22 @@ namespace Vidly.Migrations
 
             var Movie = new List<Movie>
             {
-                new Movie { MovieId = 1,   Name = "Shrek 2", GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
+                new Movie { Name = "Shrek 2", GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
                     ReleaseDate = DateTime.Parse("2008-05-06"),NoOfCopiesAvailable=10 },
 
-                new Movie { MovieId = 2,   Name = "Lords of the ring", GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
+                new Movie {  Name = "Lords of the ring", GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
                     ReleaseDate = DateTime.Parse("2008-05-06"),NoOfCopiesAvailable=10 },
 
-                new Movie { MovieId = 3,   Name = "Avenger : Infinity Wars",GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
+                new Movie {  Name = "Avenger : Infinity Wars",GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
                     ReleaseDate = DateTime.Parse("2008-05-06"),NoOfCopiesAvailable=10 },
 
-                new Movie { MovieId = 4,   Name = "Boss baby", GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
+                new Movie { Name = "Boss baby", GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
                     ReleaseDate = DateTime.Parse("2008-05-06"),NoOfCopiesAvailable=10 },
 
-                new Movie { MovieId = 5,   Name = "Forest gump", GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
+                new Movie {  Name = "Forest gump", GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
                     ReleaseDate = DateTime.Parse("2008-05-06"),NoOfCopiesAvailable=10 },
 
-                new Movie { MovieId = 6,   Name = "Jupitor Ascending", GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
+                new Movie {   Name = "Jupitor Ascending", GenreId=1, DateAdded= DateTime.Parse("2019-03-31"),
                     ReleaseDate = DateTime.Parse("2008-05-06"),NoOfCopiesAvailable=10 }
             };
             Movie.ForEach(s => context.Movies.AddOrUpdate(m => m.Name, s));
