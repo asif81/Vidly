@@ -8,6 +8,7 @@ namespace Vidly.Models
 {
     public class Movie
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MovieId { get; set; }
 
         [Required]
