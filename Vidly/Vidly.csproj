@@ -303,6 +303,10 @@
     <Compile Include="Migrations\201904011230401_VidlyDB.Designer.cs">
       <DependentUpon>201904011230401_VidlyDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904020546436_validations.cs" />
+    <Compile Include="Migrations\201904020546436_validations.Designer.cs">
+      <DependentUpon>201904020546436_validations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -400,6 +404,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904011230401_VidlyDB.resx">
       <DependentUpon>201904011230401_VidlyDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904020546436_validations.resx">
+      <DependentUpon>201904020546436_validations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
