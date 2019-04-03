@@ -15,5 +15,7 @@ namespace Vidly.Models
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
+        public static readonly int DailyMemberShipType = 1;
     }
 }

@@ -30,6 +30,7 @@ namespace Vidly.Models
         public DateTime DateAdded { get; set; }
 
         [Required]
+        [Range(1,20)]
         [Display(Name = "No. of copies available")]
         public int NoOfCopiesAvailable { get; set; }
     }
