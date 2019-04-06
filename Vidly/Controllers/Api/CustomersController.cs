@@ -6,7 +6,7 @@ using System.Web.Http;
 using Vidly.Dto;
 using Vidly.Models;
 
-namespace Vidly.Controllers.Api
+namespace Vidly.Controllers.Api 
 {
     public class CustomersController : ApiController
     {
@@ -18,15 +18,13 @@ namespace Vidly.Controllers.Api
         }
 
         // GET /api/customers
-        [HttpGet]
-        private IHttpActionResult GetCustomers()
+        public IHttpActionResult GetCustomers()
         {
             var customerDto = _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
             return Ok(customerDto);
         }
 
         // GET /api/customers/1
-        [HttpGet]
         private IHttpActionResult GetCustomer(int id)
         {
             Customer customer = _context.Customers.SingleOrDefault(c => c.CustomerId == id);
@@ -36,7 +34,7 @@ namespace Vidly.Controllers.Api
             return Ok(Mapper.Map<Customer, CustomerDto>(customer));
         }
 
-        //POST /api/customers
+        // POST /api/customers
         [HttpPost]
         public IHttpActionResult CreateCustomer(CustomerDto customerDto)
         {
@@ -52,7 +50,8 @@ namespace Vidly.Controllers.Api
             return Created(new Uri(Request.RequestUri+"/"+customer.CustomerId),customerDto);
         }
 
-        // PUT /api/Customers/1
+        // PUT /api/customers/1
+        [HttpPut]
         public IHttpActionResult UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
@@ -68,7 +67,7 @@ namespace Vidly.Controllers.Api
             return Ok();
         }
 
-        // DELETE /api/Customers/1
+        // DELETE /api/customers/1
         [HttpDelete]
         public IHttpActionResult DeleteCustomer(int id)
         {
