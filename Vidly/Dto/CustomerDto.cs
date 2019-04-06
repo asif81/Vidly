@@ -20,6 +20,8 @@ namespace Vidly.Dto
         [Required]
         public bool IsSubscribedToNewsLetter { get; set; }
        
+        public MembershipTypeDto MembershipType { get; set; }
+
         [Required]
         public int MembershipTypeId { get; set; }
            

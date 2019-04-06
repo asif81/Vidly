@@ -1,5 +1,6 @@
-﻿using AutoMapper;
-using System;
+﻿using System;
+using AutoMapper;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
 using Vidly.Dto;
@@ -16,15 +17,15 @@ namespace Vidly.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
-        // GET /api/Movies
-        private IHttpActionResult GetMovies()
+        // GET /api/movies
+        public IHttpActionResult GetMovies()
         {
-            var movieDto = _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            var movieDto = _context.Movies.Include(c => c.Genre).ToList().Select(Mapper.Map<Movie, MovieDto>);
             return Ok(movieDto);
         }
 
-        // GET /api/movies/1
-        private IHttpActionResult GetMovie(int Id)
+        // GET /api/movies/1Genre
+        public IHttpActionResult GetMovie(int Id)
         {
             Movie movie = _context.Movies.SingleOrDefault(c => c.MovieId == Id);
             if (movie == null)
@@ -33,7 +34,7 @@ namespace Vidly.Controllers.Api
             return Ok(Mapper.Map<Movie, MovieDto>(movie));
         }
 
-        //POST /api/Movies
+        //POST /api/movies
         [HttpPost]
         public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
@@ -49,7 +50,7 @@ namespace Vidly.Controllers.Api
             return Created(new Uri(Request.RequestUri + "/" + movie.MovieId), movieDto);
         }
 
-        // PUT /api/Movies/1
+        // PUT /api/movies/1
         public IHttpActionResult UpdateMovie(int Id, MovieDto movieDto)
         {
             if (!ModelState.IsValid)
@@ -65,7 +66,7 @@ namespace Vidly.Controllers.Api
             return Ok();
         }
 
-        // DELETE /api/Movies/1
+        // DELETE /api/movies/1
         [HttpDelete]
         public IHttpActionResult DeleteMovie(int Id)
         {
