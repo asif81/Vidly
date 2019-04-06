@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using System;
-using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using Vidly.Dto;
 using Vidly.Models;
@@ -20,6 +18,7 @@ namespace Vidly.Controllers.Api
         }
 
         // GET /api/customers
+        [HttpGet]
         private IHttpActionResult GetCustomers()
         {
             var customerDto = _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
@@ -27,9 +26,10 @@ namespace Vidly.Controllers.Api
         }
 
         // GET /api/customers/1
-        private IHttpActionResult GetCustomer(int Id)
+        [HttpGet]
+        private IHttpActionResult GetCustomer(int id)
         {
-            Customer customer = _context.Customers.SingleOrDefault(c => c.CustomerId == Id);
+            Customer customer = _context.Customers.SingleOrDefault(c => c.CustomerId == id);
             if (customer == null)
                 return NotFound();
 
@@ -53,12 +53,12 @@ namespace Vidly.Controllers.Api
         }
 
         // PUT /api/Customers/1
-        public IHttpActionResult UpdateCustomer(int Id, CustomerDto customerDto)
+        public IHttpActionResult UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var customerIndDb = _context.Customers.SingleOrDefault(c => c.CustomerId == Id);
+            var customerIndDb = _context.Customers.SingleOrDefault(c => c.CustomerId == id);
             if (customerIndDb == null)
                 return NotFound();
 
@@ -70,12 +70,12 @@ namespace Vidly.Controllers.Api
 
         // DELETE /api/Customers/1
         [HttpDelete]
-        public IHttpActionResult DeleteCustomer(int Id)
+        public IHttpActionResult DeleteCustomer(int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var customerIndDb = _context.Customers.SingleOrDefault(c => c.CustomerId == Id);
+            var customerIndDb = _context.Customers.SingleOrDefault(c => c.CustomerId == id);
             if (customerIndDb == null)
                 return NotFound();
 
