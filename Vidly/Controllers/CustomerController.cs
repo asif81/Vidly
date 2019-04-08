@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Vidly.Models;
 using System.Data.Entity;
 
+
 namespace Vidly.Controllers
 {
     public class CustomerController : Controller
@@ -17,6 +18,7 @@ namespace Vidly.Controllers
             _context = new ApplicationDbContext();
         }
         // GET: Customer
+  
         public ActionResult Index()
         {            
             return View();
