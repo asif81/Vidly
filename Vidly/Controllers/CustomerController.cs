@@ -20,8 +20,12 @@ namespace Vidly.Controllers
         // GET: Customer
   
         public ActionResult Index()
-        {            
-            return View();
+        {
+            if (User.IsInRole(RoleNames.CanManageMovies))
+            {
+                return View("List");
+            }
+            return View("ReadOnlyList");
         }
 
         public ActionResult Details(int Id)
@@ -38,6 +42,7 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
+        [Authorize(Roles = RoleNames.CanManageMovies)]
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -50,6 +55,7 @@ namespace Vidly.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleNames.CanManageMovies)]
         public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid)
@@ -80,7 +86,7 @@ namespace Vidly.Controllers
             return RedirectToAction("Index","Customer");
         }
 
-       
+        [Authorize(Roles = RoleNames.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.Include(m => m.MembershipType).SingleOrDefault(c => c.CustomerId == id);

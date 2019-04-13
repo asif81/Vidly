@@ -20,7 +20,7 @@ namespace Vidly.Controllers
         // GET: Movie
         public ActionResult Index()
         {
-            if (!User.IsInRole(RoleNames.CanManageMovies))
+            if (User.IsInRole(RoleNames.CanManageMovies))
             {
                 return View("List");
             }
