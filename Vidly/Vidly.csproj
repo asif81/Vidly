@@ -323,6 +323,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
     <Compile Include="Controllers\Api\MoviesController.cs" />
+    <Compile Include="Controllers\Api\NewRentalsController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -355,6 +356,10 @@
     <Compile Include="Migrations\201904131700430_phone.cs" />
     <Compile Include="Migrations\201904131700430_phone.Designer.cs">
       <DependentUpon>201904131700430_phone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904191212597_NumberAvailable.cs" />
+    <Compile Include="Migrations\201904191212597_NumberAvailable.Designer.cs">
+      <DependentUpon>201904191212597_NumberAvailable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -649,6 +654,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904131700430_phone.resx">
       <DependentUpon>201904131700430_phone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904191212597_NumberAvailable.resx">
+      <DependentUpon>201904191212597_NumberAvailable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

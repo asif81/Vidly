@@ -33,5 +33,7 @@ namespace Vidly.Models
         [Range(1,20)]
         [Display(Name = "No. of copies available")]
         public int NoOfCopiesAvailable { get; set; }
+
+        public byte NumberAvailable { get; set; }
     }
 }
